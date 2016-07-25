@@ -33,6 +33,20 @@ function getvalues() {
 
 }
 function tree(treeObj) {
-console.log(">>>>", treeObj)
+    var output = []
+    output[treeObj.height ] = treeObj.char;
+
+    output.fill(" ")
+
+        output.shift()
+        output.push(treeObj.char)
+        console.log(output.join(""))
+
+    for (var i = 0; i < treeObj.height - 1; i++) {
+        output.shift()
+        output.push(treeObj.char)
+        output.push(treeObj.char)
+        console.log(output.join(""))
+    }
 }
 
