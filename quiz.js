@@ -7,14 +7,13 @@ var character = document.getElementById("char")
 
 growButton.addEventListener("click", getvalues)
 howHigh.addEventListener("keypress", theRightKey)
+character.addEventListener("keypress", theRightKey)
 
 function theRightKey(event) {
-
-    console.log("This is the keypress event", event)
-    console.log("This is which key was pressed", event.which)
-    console.log("This is which key was pressed", event.keyCode)
     console.log("This is which key was pressed", event.key)
-    console.log("This is which key was pressed", event.code)
+    if (event.key === "Enter") {
+        getvalues()
+    }
 }
 
 function getvalues() {
