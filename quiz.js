@@ -1,33 +1,52 @@
-for(int i=1;i<=10;i++){
-    for(int j=10;j>i;j--){
-        System.out.println(" ");
-    }
+console.log ("hello")
 
-    for(int k=1;k<=i;k++){
-        System.out.print("*");
-    }
 
-    for(int l=10;l<=1;l++){
-        for(int h=1;h<=10;h++){
-            System.out.print(" ");
-        }
-    }
+var growButton = document.getElementById("grow")
+var howHigh = document.getElementById("height")
+var character = document.getElementById("char")
 
-    System.out.println();
+growButton.addEventListener("click", getvalues)
+howHigh.addEventListener("keypress", theRightKey)
+character.addEventListener("keypress", theRightKey)
+
+function theRightKey(event) {
+    console.log("This is which key was pressed", event.key)
+    if (event.key === "Enter") {
+        getvalues()
+    }
 }
 
-// OR
-
-
-public class hello {
-
-    public static void main(String[] args) {
-
-    for(int i=0;i<10;i++)  {
-        for(int j=0;j<10-i;j++)
-            System.out.print(" ");
-        for(int k=0;k<(2*i+1);k++)
-            System.out.print("*");
-        System.out.println();
-      }
+function getvalues() {
+    var inputTree={
+    height: howHigh.value,
+    char: character.value,
     }
+    // console.log(howHigh.value)
+    // console.log(character.value)
+    // console.log(inputTree)
+    if (inputTree.height === "" || (character.value === "")){
+        alert("Must have value");
+    }
+    else {
+        tree(inputTree)
+    }
+
+}
+function tree(treeObj) {
+    var output = []
+    output[treeObj.height ] = treeObj.char;
+
+    output.fill(" ")
+
+        output.shift()
+        output.push(treeObj.char)
+        console.log(output.join(""))
+
+    for (var i = 0; i < treeObj.height - 1; i++) {
+        output.shift()
+        output.push(treeObj.char)
+        output.push(treeObj.char)
+        console.log(output.join(""))
+    }
+}
+
